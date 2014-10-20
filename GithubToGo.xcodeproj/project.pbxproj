@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7047FE7319F5A0FD000C9804 /* server.js in Resources */ = {isa = PBXBuildFile; fileRef = 7047FE7219F5A0FD000C9804 /* server.js */; };
+		7047FE7819F5A303000C9804 /* SplitContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047FE7719F5A303000C9804 /* SplitContainerViewController.swift */; };
 		70FC67ED19F56BB600686AC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC67EC19F56BB600686AC5 /* AppDelegate.swift */; };
 		70FC67F019F56BB600686AC5 /* GithubToGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 70FC67EE19F56BB600686AC5 /* GithubToGo.xcdatamodeld */; };
 		70FC67F219F56BB600686AC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC67F119F56BB600686AC5 /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7047FE7219F5A0FD000C9804 /* server.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = server.js; path = "../../../sea-b23-iOS/server.js"; sourceTree = "<group>"; };
+		7047FE7719F5A303000C9804 /* SplitContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitContainerViewController.swift; sourceTree = "<group>"; };
 		70FC67E719F56BB600686AC5 /* GithubToGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubToGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70FC67EB19F56BB600686AC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70FC67EC19F56BB600686AC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +62,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7047FE7419F5A28E000C9804 /* Controller Layer */ = {
+			isa = PBXGroup;
+			children = (
+				70FC67F119F56BB600686AC5 /* ViewController.swift */,
+				7047FE7719F5A303000C9804 /* SplitContainerViewController.swift */,
+			);
+			name = "Controller Layer";
+			sourceTree = "<group>";
+		};
+		7047FE7519F5A2A9000C9804 /* Model Layer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Model Layer";
+			sourceTree = "<group>";
+		};
+		7047FE7619F5A2B7000C9804 /* View Layer */ = {
+			isa = PBXGroup;
+			children = (
+				70FC67F819F56BB600686AC5 /* LaunchScreen.xib */,
+				70FC67F319F56BB600686AC5 /* Main.storyboard */,
+			);
+			name = "View Layer";
+			sourceTree = "<group>";
+		};
 		70FC67DE19F56BB600686AC5 = {
 			isa = PBXGroup;
 			children = (
@@ -79,11 +108,11 @@
 		70FC67E919F56BB600686AC5 /* GithubToGo */ = {
 			isa = PBXGroup;
 			children = (
+				7047FE7419F5A28E000C9804 /* Controller Layer */,
+				7047FE7619F5A2B7000C9804 /* View Layer */,
+				7047FE7519F5A2A9000C9804 /* Model Layer */,
 				70FC67EC19F56BB600686AC5 /* AppDelegate.swift */,
-				70FC67F119F56BB600686AC5 /* ViewController.swift */,
-				70FC67F319F56BB600686AC5 /* Main.storyboard */,
 				70FC67F619F56BB600686AC5 /* Images.xcassets */,
-				70FC67F819F56BB600686AC5 /* LaunchScreen.xib */,
 				70FC67EE19F56BB600686AC5 /* GithubToGo.xcdatamodeld */,
 				70FC67EA19F56BB600686AC5 /* Supporting Files */,
 			);
@@ -93,6 +122,7 @@
 		70FC67EA19F56BB600686AC5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7047FE7219F5A0FD000C9804 /* server.js */,
 				70FC67EB19F56BB600686AC5 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -198,6 +228,7 @@
 				70FC67F519F56BB600686AC5 /* Main.storyboard in Resources */,
 				70FC67FA19F56BB600686AC5 /* LaunchScreen.xib in Resources */,
 				70FC67F719F56BB600686AC5 /* Images.xcassets in Resources */,
+				7047FE7319F5A0FD000C9804 /* server.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +249,7 @@
 				70FC67F219F56BB600686AC5 /* ViewController.swift in Sources */,
 				70FC67ED19F56BB600686AC5 /* AppDelegate.swift in Sources */,
 				70FC67F019F56BB600686AC5 /* GithubToGo.xcdatamodeld in Sources */,
+				7047FE7819F5A303000C9804 /* SplitContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +443,7 @@
 				70FC680B19F56BB600686AC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		70FC680C19F56BB600686AC5 /* Build configuration list for PBXNativeTarget "GithubToGoTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +452,7 @@
 				70FC680E19F56BB600686AC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
