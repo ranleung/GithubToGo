@@ -117,10 +117,10 @@
             </objects>
             <point key="canvasLocation" x="1167" y="-123"/>
         </scene>
-        <!--View Controller-->
+        <!--Repository View Controller-->
         <scene sceneID="VMt-fb-96Z">
             <objects>
-                <viewController id="7yn-r7-Aeb" sceneMemberID="viewController">
+                <viewController id="7yn-r7-Aeb" customClass="RepositoryViewController" customModule="GithubToGo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z89-Ri-EXY"/>
                         <viewControllerLayoutGuide type="bottom" id="0Yr-nL-2GS"/>
@@ -128,7 +128,6 @@
                     <view key="view" contentMode="scaleToFill" id="SeK-OA-Ywz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eu8-3X-Xw8" userLabel="First Responder" sceneMemberID="firstResponder"/>

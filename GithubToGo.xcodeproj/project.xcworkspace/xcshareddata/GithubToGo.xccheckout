@@ -22,7 +22,7 @@
 		<key>9FB9C924EEE305E60DF3083DC57B24A00B466CC8</key>
 		<string>../..</string>
 		<key>D315C12DB03D12006668E1D308B7A709FBB06F04</key>
-		<string>../../../../sea-b23-iOS</string>
+		<string>../../../sea-b23-iOS</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:ranleung/GithubToGo.git</string>
