@@ -12,7 +12,7 @@ import Social
 
 class NetworkController {
     
-    func fetchRepoWithSearchTerm(repoName: String?, completionHandler: (errorDescription: String?, response: String?)-> (Void)) {
+    func fetchRepoWithSearchTerm(repoName: String?, completionHandler: (errorDescription: String?, response: [Repo]?)-> (Void)) {
         
         let url = NSURL(string: "http://localhost:3000/")
         //setup data task for resource at URL
@@ -25,7 +25,23 @@ class NetworkController {
                         println(header)
                     }
                     let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
-                    println("responseString: \(responseString)")
+                    //println("responseString: \(responseString)")
+                    
+                    let repos = Repo.parseJSONDataIntoRepos(data)
+                    println("Number of REPOS: \(repos!.count)")
+                    
+                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                        completionHandler(errorDescription: nil, response: repos)
+                    })
+                    
+                case 400...499:
+                    println("This is the clients fault")
+                    println(httpResponse.description)
+                    completionHandler(errorDescription: "This is the client's fault", response: nil)
+                case 500...599:
+                    println("This is the servers fault")
+                    println(httpResponse.description)
+                    completionHandler(errorDescription: "This is the servers's fault", response: nil)
                 default:
                     println("Bad Response? \(httpResponse.statusCode)")
                 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		703C824919F5AF330058B4BA /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C824819F5AF330058B4BA /* RepositoryViewController.swift */; };
+		703C824B19F5B5CA0058B4BA /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C824A19F5B5CA0058B4BA /* RepoCell.swift */; };
+		703C824D19F5B62B0058B4BA /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C824C19F5B62B0058B4BA /* Repo.swift */; };
 		7047FE7819F5A303000C9804 /* SplitContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047FE7719F5A303000C9804 /* SplitContainerViewController.swift */; };
 		7047FE7A19F5AA7D000C9804 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047FE7919F5AA7D000C9804 /* NetworkController.swift */; };
 		70FC67ED19F56BB600686AC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC67EC19F56BB600686AC5 /* AppDelegate.swift */; };
@@ -31,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		703C824819F5AF330058B4BA /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
+		703C824A19F5B5CA0058B4BA /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
+		703C824C19F5B62B0058B4BA /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		7047FE7719F5A303000C9804 /* SplitContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitContainerViewController.swift; sourceTree = "<group>"; };
 		7047FE7919F5AA7D000C9804 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		70FC67E719F56BB600686AC5 /* GithubToGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubToGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +82,7 @@
 		7047FE7519F5A2A9000C9804 /* Model Layer */ = {
 			isa = PBXGroup;
 			children = (
+				703C824C19F5B62B0058B4BA /* Repo.swift */,
 			);
 			name = "Model Layer";
 			sourceTree = "<group>";
@@ -85,6 +90,7 @@
 		7047FE7619F5A2B7000C9804 /* View Layer */ = {
 			isa = PBXGroup;
 			children = (
+				703C824A19F5B5CA0058B4BA /* RepoCell.swift */,
 				70FC67F819F56BB600686AC5 /* LaunchScreen.xib */,
 				70FC67F319F56BB600686AC5 /* Main.storyboard */,
 			);
@@ -249,7 +255,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7047FE7A19F5AA7D000C9804 /* NetworkController.swift in Sources */,
+				703C824B19F5B5CA0058B4BA /* RepoCell.swift in Sources */,
 				70FC67F219F56BB600686AC5 /* ViewController.swift in Sources */,
+				703C824D19F5B62B0058B4BA /* Repo.swift in Sources */,
 				70FC67ED19F56BB600686AC5 /* AppDelegate.swift in Sources */,
 				70FC67F019F56BB600686AC5 /* GithubToGo.xcdatamodeld in Sources */,
 				703C824919F5AF330058B4BA /* RepositoryViewController.swift in Sources */,

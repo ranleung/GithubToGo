@@ -120,7 +120,7 @@
         <!--Repository View Controller-->
         <scene sceneID="VMt-fb-96Z">
             <objects>
-                <viewController id="7yn-r7-Aeb" customClass="RepositoryViewController" customModule="GithubToGo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="7yn-r7-Aeb" customClass="RepositoryViewController" customModule="GithubToGo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z89-Ri-EXY"/>
                         <viewControllerLayoutGuide type="bottom" id="0Yr-nL-2GS"/>
@@ -128,7 +128,61 @@
                     <view key="view" contentMode="scaleToFill" id="SeK-OA-Ywz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="G6H-AZ-IwW">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="REPO_CELL" rowHeight="148" id="YqO-u3-1RQ" customClass="RepoCell" customModule="GithubToGo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YqO-u3-1RQ" id="gAs-kH-lqS">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDE-sa-Flj">
+                                                    <rect key="frame" x="18" y="28" width="564" height="51.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsJ-g3-frq">
+                                                    <rect key="frame" x="18" y="77.5" width="564" height="13.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hsJ-g3-frq" firstAttribute="leading" secondItem="gAs-kH-lqS" secondAttribute="leadingMargin" constant="10" id="84W-jf-0X5"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="TDE-sa-Flj" secondAttribute="trailing" constant="10" id="9zc-57-e8O"/>
+                                                <constraint firstAttribute="centerY" secondItem="TDE-sa-Flj" secondAttribute="centerY" constant="20" id="S3J-21-eky"/>
+                                                <constraint firstAttribute="centerX" secondItem="hsJ-g3-frq" secondAttribute="centerX" id="TT3-2v-s1l"/>
+                                                <constraint firstAttribute="centerX" secondItem="TDE-sa-Flj" secondAttribute="centerX" id="WbZ-c8-Mvj"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hsJ-g3-frq" secondAttribute="trailing" constant="10" id="b4Z-eo-cIC"/>
+                                                <constraint firstItem="TDE-sa-Flj" firstAttribute="leading" secondItem="gAs-kH-lqS" secondAttribute="leadingMargin" constant="10" id="c07-Xh-7Od"/>
+                                                <constraint firstAttribute="centerY" secondItem="hsJ-g3-frq" secondAttribute="centerY" constant="-10" id="qyJ-cL-oRz"/>
+                                                <constraint firstItem="TDE-sa-Flj" firstAttribute="top" secondItem="gAs-kH-lqS" secondAttribute="topMargin" constant="20" id="vSw-Ok-UMW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="repoDescLabel" destination="hsJ-g3-frq" id="E8u-iP-Fpo"/>
+                                            <outlet property="repoNameLabel" destination="TDE-sa-Flj" id="daB-aC-eig"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="G6H-AZ-IwW" firstAttribute="top" secondItem="z89-Ri-EXY" secondAttribute="bottom" id="RGH-aT-CEL"/>
+                            <constraint firstAttribute="bottom" secondItem="G6H-AZ-IwW" secondAttribute="bottom" id="Z20-m1-DOC"/>
+                            <constraint firstAttribute="trailing" secondItem="G6H-AZ-IwW" secondAttribute="trailing" id="ijl-UM-wDd"/>
+                            <constraint firstItem="G6H-AZ-IwW" firstAttribute="leading" secondItem="SeK-OA-Ywz" secondAttribute="leading" id="naY-kk-V9q"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="G6H-AZ-IwW" id="h93-c9-1Ls"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eu8-3X-Xw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
