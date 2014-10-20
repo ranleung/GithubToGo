@@ -22,17 +22,21 @@ class Repo {
     
     class func parseJSONDataIntoRepos(rawJSONData: NSData) -> [Repo]? {
         var error: NSError?
-        if let JSONDictionary = NSJSONSerialization.JSONObjectWithData(rawJSONData, options: nil, error: nil) as? NSDictionary {
+        if let searchJSONDictionary = NSJSONSerialization.JSONObjectWithData(rawJSONData, options: nil, error: nil) as? NSDictionary {
             var repos = [Repo]()
             
-            var newRepo = Repo(repoInfo: JSONDictionary)
-            repos.append(newRepo)
-
+            if let repoArray = searchJSONDictionary["items"] as? NSArray {
+                for dictionary in repoArray {
+                    if let repoDictionary = dictionary as? NSDictionary {
+                        var newRepo = Repo(repoInfo: searchJSONDictionary)
+                        repos.append(newRepo)
+                    }
+                }
+            }
             return repos
         }
         return nil
     }
-    
     
     
     
