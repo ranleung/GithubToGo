@@ -12,6 +12,17 @@ import Social
 
 class NetworkController {
     
+    class var controller : NetworkController {
+    struct Static {
+        static var onceToken : dispatch_once_t = 0
+        static var instance : NetworkController? = nil
+        }
+        dispatch_once(&Static.onceToken) {
+            Static.instance = NetworkController()
+        }
+        return Static.instance!
+    }
+    
     func fetchRepoWithSearchTerm(repoName: String?, completionHandler: (errorDescription: String?, response: [Repo]?)-> (Void)) {
         
         let url = NSURL(string: "http://localhost:3000/")

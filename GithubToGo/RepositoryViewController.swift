@@ -23,10 +23,7 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
         tableView.estimatedRowHeight = 148.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        self.networkController = appDelegate.networkController
-        
-        self.networkController.fetchRepoWithSearchTerm(nil, completionHandler: { (errorDescription, response) -> (Void) in
+        NetworkController.controller.fetchRepoWithSearchTerm(nil, completionHandler: { (errorDescription, response) -> (Void) in
             if errorDescription != nil {
                 println(errorDescription)
             } else {
