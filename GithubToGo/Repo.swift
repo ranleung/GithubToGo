@@ -15,9 +15,8 @@ class Repo {
     
     init(repoInfo: NSDictionary) {
         println(repoInfo)
-        var itemsInfo = repoInfo["items"] as NSArray
-        self.repoName = itemsInfo[0]["name"] as? String
-        self.repoDesc = itemsInfo[0]["description"] as? String
+        self.repoName = repoInfo["name"] as? String
+        self.repoDesc = repoInfo["description"] as? String
     }
     
     class func parseJSONDataIntoRepos(rawJSONData: NSData) -> [Repo]? {
@@ -28,7 +27,7 @@ class Repo {
             if let repoArray = searchJSONDictionary["items"] as? NSArray {
                 for dictionary in repoArray {
                     if let repoDictionary = dictionary as? NSDictionary {
-                        var newRepo = Repo(repoInfo: searchJSONDictionary)
+                        var newRepo = Repo(repoInfo: repoDictionary)
                         repos.append(newRepo)
                     }
                 }

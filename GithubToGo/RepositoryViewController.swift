@@ -13,8 +13,6 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var tableView: UITableView!
     
     var repos: [Repo]?
-    var networkController: NetworkController!
-
     var testRepoName: String = "test"
     
     override func viewDidLoad() {
@@ -56,9 +54,7 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
         return cell
         
     }
-
-    
-    
+   
     
     
 
