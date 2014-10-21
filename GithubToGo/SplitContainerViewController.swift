@@ -16,6 +16,11 @@ class SplitContainerViewController: UIViewController, UISplitViewControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        dispatch_after(1, dispatch_get_main_queue(), {
+            NetworkController.controller.requestOAuthAccess()
+        })
+        
         let splitVC = self.childViewControllers[0] as UISplitViewController
         splitVC.delegate = self
         

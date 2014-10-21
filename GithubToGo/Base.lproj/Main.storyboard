@@ -132,6 +132,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="G6H-AZ-IwW">
                                 <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="vsZ-cH-xAc">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="7yn-r7-Aeb" id="zGT-Vc-gWp"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="REPO_CELL" rowHeight="148" id="YqO-u3-1RQ" customClass="RepoCell" customModule="GithubToGo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -140,13 +148,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDE-sa-Flj">
-                                                    <rect key="frame" x="18" y="28" width="564" height="51.5"/>
+                                                    <rect key="frame" x="18" y="28" width="564" height="52"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsJ-g3-frq">
-                                                    <rect key="frame" x="18" y="77.5" width="564" height="13.5"/>
+                                                    <rect key="frame" x="18" y="77" width="564" height="13.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -174,11 +182,17 @@
                             </tableView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="G6H-AZ-IwW" firstAttribute="top" secondItem="z89-Ri-EXY" secondAttribute="bottom" id="RGH-aT-CEL"/>
+                            <constraint firstItem="G6H-AZ-IwW" firstAttribute="top" secondItem="z89-Ri-EXY" secondAttribute="bottom" constant="100" id="RGH-aT-CEL"/>
                             <constraint firstAttribute="bottom" secondItem="G6H-AZ-IwW" secondAttribute="bottom" id="Z20-m1-DOC"/>
                             <constraint firstAttribute="trailing" secondItem="G6H-AZ-IwW" secondAttribute="trailing" id="ijl-UM-wDd"/>
                             <constraint firstItem="G6H-AZ-IwW" firstAttribute="leading" secondItem="SeK-OA-Ywz" secondAttribute="leading" id="naY-kk-V9q"/>
+                            <constraint firstItem="G6H-AZ-IwW" firstAttribute="top" secondItem="z89-Ri-EXY" secondAttribute="bottom" id="rXB-wL-kRb"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RGH-aT-CEL"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="G6H-AZ-IwW" id="h93-c9-1Ls"/>

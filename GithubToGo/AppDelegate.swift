@@ -16,6 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let key = "MyKey"
+        if let value = NSUserDefaults.standardUserDefaults().valueForKey(key) as? String {
+            println("value \(value)")
+        } else {
+            NSUserDefaults.standardUserDefaults().setObject("MySpecialValue", forKey: key)
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        NetworkController.controller.handleOAuthURL(url)
         return true
     }
 

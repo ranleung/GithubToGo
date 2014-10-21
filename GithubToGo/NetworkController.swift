@@ -6,12 +6,19 @@
 //  Copyright (c) 2014 Randall. All rights reserved.
 //
 
-import Foundation
-import Social
+import UIKit
 
 
 class NetworkController {
     
+    let clientID = "client_id=e251b331bff2250fe6a4"
+    let clientSecret = "client_secret=27e443ad568e2e8de1e10b499c0fc106301e3878"
+    let githubOAuthUrl = "https://github.com/login/oauth/authorize?"
+    let scope = "scope=user,repo"
+    let redirectURL = "redirect_uri=somefancyname://test"
+    let githubPOSTURL = "https://github.com/login/oauth/access_token"
+    
+    //Creating a singleton class
     class var controller : NetworkController {
     struct Static {
         static var onceToken : dispatch_once_t = 0
@@ -21,6 +28,52 @@ class NetworkController {
             Static.instance = NetworkController()
         }
         return Static.instance!
+    }
+    
+    //Take the user of our app and send the to github
+    func requestOAuthAccess() {
+        let url = githubOAuthUrl + clientID + "&" + redirectURL + "&" + scope
+        UIApplication.sharedApplication().openURL(NSURL(string: url)!)
+    }
+    
+    func handleOAuthURL(callbackURL: NSURL) {
+        //parsing throught the url that given to us by Github
+        let query = callbackURL.query
+        println("The query is: \(query)")
+        let components = query?.componentsSeparatedByString("code=")
+        let code = components?.last
+        println("The Code is: \(code)")
+        //constructing the query string for the final POST call
+        let urlQuery = clientID + "&" + clientSecret + "&" + "code=\(code!)"
+        var request = NSMutableURLRequest(URL: NSURL(string: githubPOSTURL)!)
+        request.HTTPMethod = "POST"
+        var postData = urlQuery.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: true)
+        let length = postData!.length
+        request.setValue("\(length)", forHTTPHeaderField: "Content-Length")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.HTTPBody = postData
+        
+        let dataTask: Void = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+            
+            if error != nil {
+                println("Hello this is an error")
+            } else {
+                if let httpResponse = response as? NSHTTPURLResponse {
+                    switch httpResponse.statusCode {
+                    case 200...204:
+                        var tokenResponse = NSString(data: data, encoding: NSASCIIStringEncoding)
+                        println("The token response is: \(tokenResponse!)")
+                        
+                        var configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+                        
+                        
+                        
+                    default:
+                        println("Default case on status code")
+                    }
+                }
+            }
+        }).resume()
     }
     
     func fetchRepoWithSearchTerm(repoName: String?, completionHandler: (errorDescription: String?, response: [Repo]?)-> (Void)) {

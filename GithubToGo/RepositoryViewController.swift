@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class RepositoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet var tableView: UITableView!
     
@@ -30,7 +30,7 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
             }
         })
         
-        
+        //In storyboard, set searchBar delegate to View Controller
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
@@ -55,7 +55,14 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
         
     }
    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        println(searchText)
+    }
     
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        let searchText = searchBar.text
+        println("User is searching for: \(searchText)")
+    }
     
 
 
