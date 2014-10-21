@@ -42,7 +42,7 @@ class NetworkController {
         println("The query is: \(query)")
         let components = query?.componentsSeparatedByString("code=")
         let code = components?.last
-        println("The Code is: \(code)")
+        //println("The Code is: \(code!)")
         //constructing the query string for the final POST call
         let urlQuery = clientID + "&" + clientSecret + "&" + "code=\(code!)"
         var request = NSMutableURLRequest(URL: NSURL(string: githubPOSTURL)!)
@@ -62,10 +62,19 @@ class NetworkController {
                     switch httpResponse.statusCode {
                     case 200...204:
                         var tokenResponse = NSString(data: data, encoding: NSASCIIStringEncoding)
-                        println("The token response is: \(tokenResponse!)")
+                        //println("The token response is: \(tokenResponse!)")
+                        var accessTokenComponent = tokenResponse?.componentsSeparatedByString("access_token=")
+                        //println(accessTokenComponent)
+                        let accessTokenComponentBack: AnyObject = accessTokenComponent![1]
+                        //println(accessTokenComponentBack)
+                        accessTokenComponent = accessTokenComponentBack.componentsSeparatedByString("&scope")
+                        //println(accessTokenComponent!.first)
+                        let accessToken: AnyObject? = accessTokenComponent?.first
+                        println("The accessToken is: \(accessToken!)")
                         
                         var configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-                        
+                        configuration.HTTPAdditionalHeaders = ["token accessToken": "Authorization"]
+                        var mySession = NSURLSession(configuration: configuration)
                         
                         
                     default:
