@@ -28,7 +28,7 @@ class NetworkController {
         let url = NSURL(string: "http://localhost:3000/")
         //setup data task for resource at URL
         //make a GET request, by default
-        let dataTask = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: { (data, response, error) -> Void in
+        let dataTask = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
             if let httpResponse = response as? NSHTTPURLResponse {
                 switch httpResponse.statusCode {
                 case 200...204:

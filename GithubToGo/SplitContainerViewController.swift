@@ -22,22 +22,20 @@ class SplitContainerViewController: UIViewController, UISplitViewControllerDeleg
         self.userDefaults = NSUserDefaults.standardUserDefaults()
         self.firstTimeLogginIn = self.userDefaults!.objectForKey("firstTimeLogin") as? Bool
     }
-
+    
+    //Gets called when the view is collasped
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController!, ontoPrimaryViewController primaryViewController: UIViewController!) -> Bool {
-        // NOT YET WORKING
         if (self.firstTimeLogginIn != true) {
-            //if NOT first time login
+            //if NOT first time login, false is first time
             self.userDefaults?.setBool(true, forKey: "firstTimeLogin")
             return false
         } else {
-            //if FIRST time login
+            //if FIRST time login, true is second time
             return true
         }
     }
-    
-    //false is first time
-    // true is second time
-    //http://stackoverflow.com/questions/26415806/showing-action-sheet-when-iphone-app-launches-the-first-time-ios-8
+
+
 
 
 }
