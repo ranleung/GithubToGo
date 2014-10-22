@@ -16,10 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        // Tells the delegate that the launch process is almost done and the app is almost ready to run.
         
         var key = "MyKey"
         if let value = NSUserDefaults.standardUserDefaults().valueForKey(key) as? String {
-            println("value \(value)")
+            println("NSUserDefault Value: \(value)")
             NetworkController.controller.accessToken = value
         }
         return true

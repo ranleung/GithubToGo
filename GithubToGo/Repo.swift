@@ -12,11 +12,20 @@ class Repo {
     
     var repoName: String?
     var repoDesc: String?
+    var language: String?
+    var createdAt: String?
+    var login: String?
     
     init(repoInfo: NSDictionary) {
         println(repoInfo)
         self.repoName = repoInfo["name"] as? String
         self.repoDesc = repoInfo["description"] as? String
+        self.language = repoInfo["language"]  as? String
+        let unformatedCreatedAt = repoInfo["created_at"] as? String
+        var createdAtComponent = unformatedCreatedAt?.componentsSeparatedByString("T")
+        self.createdAt = createdAtComponent?.first
+        let owner = repoInfo["owner"] as NSDictionary
+        self.login = owner["login"] as? NSString
     }
     
     class func parseJSONDataIntoRepos(rawJSONData: NSData) -> [Repo]? {

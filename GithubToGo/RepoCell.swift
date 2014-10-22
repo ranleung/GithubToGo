@@ -10,9 +10,17 @@ import UIKit
 
 class RepoCell: UITableViewCell {
 
+    
     @IBOutlet var repoNameLabel: UILabel!
     
     @IBOutlet var repoDescLabel: UILabel!
+    
+    @IBOutlet var userLabel: UILabel!
+    
+    @IBOutlet var languageLabel: UILabel!
+    
+    @IBOutlet var createdAtLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

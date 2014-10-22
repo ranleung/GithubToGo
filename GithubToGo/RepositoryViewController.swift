@@ -13,14 +13,21 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var tableView: UITableView!
     
     var repos: [Repo]?
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Using Nib instead of segeue
+        self.tableView.registerNib(UINib(nibName: "RepoCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "REPO_CELL")
+        
         tableView.estimatedRowHeight = 148.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        NetworkController.controller.fetchRepoWithSearchTerm("Hello World", completionHandler: { (errorDescription, response) -> (Void) in
+        let initalSearch = "Hello World"
+        self.title = initalSearch
+        
+        NetworkController.controller.fetchRepoWithSearchTerm(initalSearch, completionHandler: { (errorDescription, response) -> (Void) in
             if errorDescription != nil {
                 println(errorDescription)
             } else {
@@ -49,6 +56,10 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
         
         cell.repoNameLabel.text = repo?.repoName
         cell.repoDescLabel.text = repo?.repoDesc
+        cell.languageLabel.text = repo?.language
+        cell.createdAtLabel.text = repo?.createdAt
+        cell.userLabel.text = ("By: \(repo!.login!)")
+
         
         return cell
         
@@ -70,8 +81,16 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
             }
         })
         searchBar.resignFirstResponder()
+        
+        self.title = searchText
     }
     
-
-
+    
+    
+    
+    
+    
+    
+    
+    
 }

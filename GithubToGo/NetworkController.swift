@@ -40,7 +40,7 @@ class NetworkController {
     }
     
     func handleOAuthURL(callbackURL: NSURL) {
-        //parsing throught the url that given to us by Github
+        //Set up the request, parsing throught the url that given to us by Github
         let query = callbackURL.query
         println("The query is: \(query)")
         let components = query?.componentsSeparatedByString("code=")
@@ -50,12 +50,14 @@ class NetworkController {
         let urlQuery = clientID + "&" + clientSecret + "&" + "code=\(code!)"
         var request = NSMutableURLRequest(URL: NSURL(string: githubPOSTURL)!)
         request.HTTPMethod = "POST"
+        //Return NSData object from string
         var postData = urlQuery.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: true)
         let length = postData!.length
         request.setValue("\(length)", forHTTPHeaderField: "Content-Length")
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.HTTPBody = postData
         
+        //Creates an HTTP request for the specified URL request object, and calls a handler upon completion.
         let dataTask: Void = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
             
             if error != nil {
@@ -76,7 +78,7 @@ class NetworkController {
                         println("The accessToken is: \(self.accessToken!)")
                         
                         var configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-                        configuration.HTTPAdditionalHeaders = ["token accessToken": "Authorization"]
+                        configuration.HTTPAdditionalHeaders = ["Authorization": "token accessToken"]
                         self.mySession = NSURLSession(configuration: configuration)
                         
                         NSUserDefaults.standardUserDefaults().setObject("\(self.accessToken!)", forKey: "MyKey")
