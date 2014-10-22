@@ -13,7 +13,6 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var tableView: UITableView!
     
     var repos: [Repo]?
-    var testRepoName: String = "test"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +20,7 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
         tableView.estimatedRowHeight = 148.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        NetworkController.controller.fetchRepoWithSearchTerm("Tetris", completionHandler: { (errorDescription, response) -> (Void) in
+        NetworkController.controller.fetchRepoWithSearchTerm("Hello World", completionHandler: { (errorDescription, response) -> (Void) in
             if errorDescription != nil {
                 println(errorDescription)
             } else {
@@ -70,6 +69,7 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
                 self.tableView.reloadData()
             }
         })
+        searchBar.resignFirstResponder()
     }
     
 

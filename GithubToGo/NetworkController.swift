@@ -92,7 +92,10 @@ class NetworkController {
     
     func fetchRepoWithSearchTerm(repoName: String?, completionHandler: (errorDescription: String?, response: [Repo]?)-> (Void)) {
         
-        let url = NSURL(string: "https://api.github.com/search/repositories?q=\(repoName!)")
+        //If repoName contains a space
+        let formattedSearchTerm = repoName?.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        
+        let url = NSURL(string: "https://api.github.com/search/repositories?q=\(formattedSearchTerm!)")
 
 
         //setup data task for resource at URL
