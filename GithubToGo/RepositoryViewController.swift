@@ -21,7 +21,7 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
         tableView.estimatedRowHeight = 148.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        NetworkController.controller.fetchRepoWithSearchTerm(nil, completionHandler: { (errorDescription, response) -> (Void) in
+        NetworkController.controller.fetchRepoWithSearchTerm("Tetris", completionHandler: { (errorDescription, response) -> (Void) in
             if errorDescription != nil {
                 println(errorDescription)
             } else {
@@ -62,6 +62,14 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         let searchText = searchBar.text
         println("User is searching for: \(searchText)")
+        NetworkController.controller.fetchRepoWithSearchTerm(searchText, completionHandler: { (errorDescription, response) -> (Void) in
+            if errorDescription != nil {
+                println(errorDescription)
+            } else {
+                self.repos = response
+                self.tableView.reloadData()
+            }
+        })
     }
     
 

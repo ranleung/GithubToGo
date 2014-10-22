@@ -17,18 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let key = "MyKey"
+        var key = "MyKey"
         if let value = NSUserDefaults.standardUserDefaults().valueForKey(key) as? String {
             println("value \(value)")
-        } else {
-            NSUserDefaults.standardUserDefaults().setObject("MySpecialValue", forKey: key)
-            NSUserDefaults.standardUserDefaults().synchronize()
+            NetworkController.controller.accessToken = value
         }
         return true
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        NetworkController.controller.handleOAuthURL(url)
+        if NetworkController.controller.accessToken == nil {
+            NetworkController.controller.handleOAuthURL(url)
+        }
         return true
     }
 

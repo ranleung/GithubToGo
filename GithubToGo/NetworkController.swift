@@ -11,6 +11,9 @@ import UIKit
 
 class NetworkController {
     
+    var mySession: NSURLSession?
+    var accessToken: String?
+    
     let clientID = "client_id=e251b331bff2250fe6a4"
     let clientSecret = "client_secret=27e443ad568e2e8de1e10b499c0fc106301e3878"
     let githubOAuthUrl = "https://github.com/login/oauth/authorize?"
@@ -69,13 +72,15 @@ class NetworkController {
                         //println(accessTokenComponentBack)
                         accessTokenComponent = accessTokenComponentBack.componentsSeparatedByString("&scope")
                         //println(accessTokenComponent!.first)
-                        let accessToken: AnyObject? = accessTokenComponent?.first
-                        println("The accessToken is: \(accessToken!)")
+                        self.accessToken = accessTokenComponent?.first as? NSString
+                        println("The accessToken is: \(self.accessToken!)")
                         
                         var configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
                         configuration.HTTPAdditionalHeaders = ["token accessToken": "Authorization"]
-                        var mySession = NSURLSession(configuration: configuration)
+                        self.mySession = NSURLSession(configuration: configuration)
                         
+                        NSUserDefaults.standardUserDefaults().setObject("\(self.accessToken!)", forKey: "MyKey")
+                        NSUserDefaults.standardUserDefaults().synchronize()
                         
                     default:
                         println("Default case on status code")
@@ -87,9 +92,12 @@ class NetworkController {
     
     func fetchRepoWithSearchTerm(repoName: String?, completionHandler: (errorDescription: String?, response: [Repo]?)-> (Void)) {
         
-        let url = NSURL(string: "http://localhost:3000/")
+        let url = NSURL(string: "https://api.github.com/search/repositories?q=\(repoName!)")
+
+
         //setup data task for resource at URL
         //make a GET request, by default
+        
         let dataTask = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
             if let httpResponse = response as? NSHTTPURLResponse {
                 switch httpResponse.statusCode {
@@ -122,6 +130,7 @@ class NetworkController {
         })
         dataTask.resume()
     }
+ 
     
     
     
