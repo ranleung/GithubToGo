@@ -83,6 +83,7 @@ class UserSearchViewController: UIViewController, UICollectionViewDelegate, UICo
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewControllerWithIdentifier("UserDetailViewController") as UserDetailViewController
         
+        viewController.user = user
         viewController.image = user?.downloadedImage
         viewController.reverseOrigin = self.origin!
         

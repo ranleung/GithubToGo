@@ -11,10 +11,12 @@ import UIKit
 class UserDetailViewController: UIViewController {
 
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var userLabel: UILabel!
 
     // Save final location of animation
     var reverseOrigin: CGRect?
     var image: UIImage?
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +24,7 @@ class UserDetailViewController: UIViewController {
         self.title = "Detail User Page"
         
         self.imageView.image = self.image
-        
+        self.userLabel.text = self.user?.login
     }
     
 

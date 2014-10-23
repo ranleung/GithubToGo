@@ -87,13 +87,13 @@
 		7047FE7419F5A28E000C9804 /* Controller Layer */ = {
 			isa = PBXGroup;
 			children = (
+				7073F20C19F8835F00F1A3A3 /* RootViewController.swift */,
 				70FC67F119F56BB600686AC5 /* ViewController.swift */,
 				7047FE7719F5A303000C9804 /* SplitContainerViewController.swift */,
 				7047FE7919F5AA7D000C9804 /* NetworkController.swift */,
 				703C824819F5AF330058B4BA /* RepositoryViewController.swift */,
 				7040C81119F842120039972C /* UserSearchViewController.swift */,
 				70840C9F19F868BA009D3D7B /* UserDetailViewController.swift */,
-				7073F20C19F8835F00F1A3A3 /* RootViewController.swift */,
 			);
 			name = "Controller Layer";
 			sourceTree = "<group>";

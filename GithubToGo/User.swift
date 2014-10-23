@@ -13,6 +13,7 @@ class User {
     var login: String?
     var avatarUrl: String?
     var downloadedImage: UIImage?
+
     
     init(userInfo: NSDictionary) {
         self.login = userInfo["login"] as? String

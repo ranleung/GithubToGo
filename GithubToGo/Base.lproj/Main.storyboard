@@ -347,15 +347,24 @@
                                     <constraint firstAttribute="width" constant="200" id="bY3-5x-QqE"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S31-pd-cAf">
+                                <rect key="frame" x="267" y="285.5" width="65.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="yWJ-n3-nEV" firstAttribute="leading" secondItem="9Bd-aE-FBK" secondAttribute="leadingMargin" constant="8" id="6Pt-mr-JfG"/>
                             <constraint firstItem="yWJ-n3-nEV" firstAttribute="top" secondItem="q5Z-EE-2Mm" secondAttribute="bottom" constant="8" id="XuA-Ej-Pgg"/>
+                            <constraint firstAttribute="centerY" secondItem="S31-pd-cAf" secondAttribute="centerY" id="a9a-P2-zSY"/>
+                            <constraint firstAttribute="centerX" secondItem="S31-pd-cAf" secondAttribute="centerX" id="iac-fP-OiL"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="yWJ-n3-nEV" id="y3l-w4-bXl"/>
+                        <outlet property="userLabel" destination="S31-pd-cAf" id="0Yt-Jj-MVv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3B-ms-D0o" userLabel="First Responder" sceneMemberID="firstResponder"/>
