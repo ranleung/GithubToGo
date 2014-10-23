@@ -12,21 +12,28 @@ class RootViewController: UITableViewController, UINavigationControllerDelegate 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Find the nav controller in the view controller stack
         // and set ourselves as the delegate
         self.navigationController?.delegate = self
     }
-
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.delegate = nil
+    }
+    
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         // This is called whenever during all navigation operations
         
         // Only return a custom animator for two view controller types
         if let mainViewController = fromVC as? UserSearchViewController {
-            let animator = ShowImageAnimator()
-            animator.origin = mainViewController.origin
-            
-            return animator
+            if let detailView = toVC as? UserDetailViewController {
+                let animator = ShowImageAnimator()
+                animator.origin = mainViewController.origin
+                
+                return animator
+            }
         }
         else if let mainViewController = fromVC as? UserDetailViewController {
             let animator = HideImageAnimator()
@@ -38,6 +45,9 @@ class RootViewController: UITableViewController, UINavigationControllerDelegate 
         // All other types use default transition
         return nil
     }
+    
+
+
 
 
 }

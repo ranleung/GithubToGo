@@ -14,5 +14,12 @@ class UserCell: UICollectionViewCell {
     @IBOutlet var avatarImage: UIImageView!
     
     @IBOutlet var loginLabel: UILabel!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        avatarImage.image = UIImage(named: "question.png")
+    }
+    
+    
 
 }

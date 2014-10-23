@@ -16,6 +16,7 @@
 		7040C81619F854C30039972C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7040C81519F854C30039972C /* UserCell.swift */; };
 		7047FE7819F5A303000C9804 /* SplitContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047FE7719F5A303000C9804 /* SplitContainerViewController.swift */; };
 		7047FE7A19F5AA7D000C9804 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047FE7919F5AA7D000C9804 /* NetworkController.swift */; };
+		704B87A419F962E00093C604 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = 704B87A319F962E00093C604 /* question.png */; };
 		7073F20919F87A9B00F1A3A3 /* ShowImageAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7073F20819F87A9B00F1A3A3 /* ShowImageAnimator.swift */; };
 		7073F20B19F87ABF00F1A3A3 /* HideImageAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7073F20A19F87ABF00F1A3A3 /* HideImageAnimator.swift */; };
 		7073F20D19F8835F00F1A3A3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7073F20C19F8835F00F1A3A3 /* RootViewController.swift */; };
@@ -49,6 +50,7 @@
 		7040C81519F854C30039972C /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		7047FE7719F5A303000C9804 /* SplitContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitContainerViewController.swift; sourceTree = "<group>"; };
 		7047FE7919F5AA7D000C9804 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		704B87A319F962E00093C604 /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
 		7073F20819F87A9B00F1A3A3 /* ShowImageAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageAnimator.swift; sourceTree = "<group>"; };
 		7073F20A19F87ABF00F1A3A3 /* HideImageAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideImageAnimator.swift; sourceTree = "<group>"; };
 		7073F20C19F8835F00F1A3A3 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		70FC67EA19F56BB600686AC5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				704B87A319F962E00093C604 /* question.png */,
 				70FC67EB19F56BB600686AC5 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -266,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				704B87A419F962E00093C604 /* question.png in Resources */,
 				70FC67F519F56BB600686AC5 /* Main.storyboard in Resources */,
 				70FC67FA19F56BB600686AC5 /* LaunchScreen.xib in Resources */,
 				70FC67F719F56BB600686AC5 /* Images.xcassets in Resources */,

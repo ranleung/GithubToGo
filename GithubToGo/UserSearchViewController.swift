@@ -24,6 +24,8 @@ class UserSearchViewController: UIViewController, UICollectionViewDelegate, UICo
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
+    
+
 
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         println(searchText)
@@ -91,8 +93,7 @@ class UserSearchViewController: UIViewController, UICollectionViewDelegate, UICo
         
     }
     
-    
-    
+
     
     
     
