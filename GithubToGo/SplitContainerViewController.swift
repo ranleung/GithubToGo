@@ -27,6 +27,8 @@ class SplitContainerViewController: UIViewController, UISplitViewControllerDeleg
         
         self.userDefaults = NSUserDefaults.standardUserDefaults()
         self.firstTimeLogginIn = self.userDefaults!.objectForKey("firstTimeLogin") as? Bool
+        
+        
     }
     
     //Gets called when the view is collasped
@@ -40,6 +42,7 @@ class SplitContainerViewController: UIViewController, UISplitViewControllerDeleg
             return true
         }
     }
+    
 
 
 
