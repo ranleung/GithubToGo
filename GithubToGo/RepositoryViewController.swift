@@ -36,7 +36,9 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
             }
         })
         
-        //In storyboard, set searchBar delegate to View Controller
+        
+        //In storyboard, already set the searchBar delegate to View Controller
+        //self.searchBar.delegate = self
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
@@ -69,9 +71,17 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
         println(searchText)
     }
     
+    func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String)-> Bool {
+        println(text)
+        return text.validate()
+    }
+    
+
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         let searchText = searchBar.text
         println("User is searching for: \(searchText)")
+        
         NetworkController.controller.fetchRepoWithSearchTerm(searchText, completionHandler: { (errorDescription, response) -> (Void) in
             if errorDescription != nil {
                 println(errorDescription)

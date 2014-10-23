@@ -31,6 +31,10 @@ class UserSearchViewController: UIViewController, UICollectionViewDelegate, UICo
         println(searchText)
     }
     
+    func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        return text.validate()
+    }
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         let searchText = searchBar.text
         println("User is searching for: \(searchText)")
