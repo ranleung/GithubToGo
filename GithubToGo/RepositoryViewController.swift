@@ -62,7 +62,6 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
         cell.createdAtLabel.text = repo?.createdAt
         cell.userLabel.text = ("By: \(repo!.login!)")
 
-        
         return cell
         
     }
@@ -73,7 +72,16 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
     
     func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String)-> Bool {
         println(text)
-        return text.validate()
+        if text.validate() == true {
+            println("True")
+            searchBar.barTintColor = nil
+            return text.validate()
+        } else {
+            println("false")
+            searchBar.barTintColor = UIColor.redColor()
+            return text.validate()
+        }
+        
     }
     
 
