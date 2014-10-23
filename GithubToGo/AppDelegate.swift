@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             println("NSUserDefault Value: \(value)")
             NetworkController.controller.accessToken = value
         }
+        
+        
         return true
     }
     

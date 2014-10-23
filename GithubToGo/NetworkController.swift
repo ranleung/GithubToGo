@@ -11,6 +11,7 @@ import UIKit
 
 class NetworkController {
     
+    let imageQueue = NSOperationQueue()
     var mySession: NSURLSession?
     var accessToken: String?
     
@@ -136,6 +137,61 @@ class NetworkController {
         dataTask.resume()
     }
  
+    
+    func fetchUserWithSearchTerm(user: String?, completionHandler: (errorDescription: String?, response: [User]?)-> (Void)) {
+        
+        let formattedSearchTerm = user?.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        
+        let url = NSURL(string: "https://api.github.com/search/users?q=\(formattedSearchTerm!)")
+        
+        let dataTask: Void = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
+            if let httpResponse = response as? NSHTTPURLResponse {
+                switch httpResponse.statusCode {
+                case 200...204:
+                    for header in httpResponse.allHeaderFields {
+                        println(header)
+                    }
+                    let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    
+                    let users = User.parseJSONDataIntoUsers(data)
+                    println("Number of Users: \(users!.count)")
+                    
+                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                        completionHandler(errorDescription: nil, response: users)
+                    })
+                    
+                case 400...499:
+                    println("This is the clients fault")
+                    println(httpResponse.description)
+                    completionHandler(errorDescription: "This is the client's fault", response: nil)
+                case 500...599:
+                    println("This is the servers fault")
+                    println(httpResponse.description)
+                    completionHandler(errorDescription: "This is the servers's fault", response: nil)
+                default:
+                    println("Bad Response? \(httpResponse.statusCode)")
+                }
+            }
+            
+        }).resume()
+    }
+    
+    
+    func downloadUserImageForUser(user: User, completionHandler: (image: UIImage)->(Void)) {
+        self.imageQueue.addOperationWithBlock { () -> Void in
+            
+            let urlData = NSURL(string: user.avatarUrl!)
+            //Now making the network call
+            let imageData = NSData(contentsOfURL: urlData!)
+            var avatarImage = UIImage(data: imageData!)
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+              completionHandler(image: avatarImage!)
+            }
+            
+        }
+    }
+    
     
     
     

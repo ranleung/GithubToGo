@@ -14,17 +14,27 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zS0-z2-efm">
-                        <rect key="frame" x="16" y="16" width="90" height="21"/>
+                        <rect key="frame" x="16" y="16" width="120" height="21"/>
                         <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="nI6-5k-xSm"/>
                             <constraint firstAttribute="height" constant="21" id="naI-b8-Ytm"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="qhg-ij-pz4"/>
                             <constraint firstAttribute="width" constant="90" id="rkf-qm-o7J"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="rkf-qm-o7J"/>
+                            </mask>
+                        </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo Decscription" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Oe-DL-aQ1">
-                        <rect key="frame" x="16" y="67" width="385" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" text="Repo Decscription" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Oe-DL-aQ1">
+                        <rect key="frame" x="16" y="60.5" width="385" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="Hu5-cg-CPy"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -41,8 +51,8 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCP-oz-Bpq">
-                        <rect key="frame" x="375" y="142" width="26" height="14.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="247" text="User" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCP-oz-Bpq">
+                        <rect key="frame" x="375" y="140.5" width="26" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -53,7 +63,8 @@
                     <constraint firstAttribute="bottomMargin" secondItem="UCP-oz-Bpq" secondAttribute="bottom" constant="4" id="6MH-os-j1R"/>
                     <constraint firstAttribute="trailingMargin" secondItem="5Oe-DL-aQ1" secondAttribute="trailing" constant="8" id="Gva-IS-vIL"/>
                     <constraint firstItem="5Oe-DL-aQ1" firstAttribute="leading" secondItem="vFk-R1-Fgi" secondAttribute="leadingMargin" constant="8" id="Jr5-Xm-r6h"/>
-                    <constraint firstItem="5Oe-DL-aQ1" firstAttribute="top" secondItem="vF0-rE-fTZ" secondAttribute="bottom" constant="15" id="Jta-TV-rHz"/>
+                    <constraint firstItem="5Oe-DL-aQ1" firstAttribute="top" secondItem="vF0-rE-fTZ" secondAttribute="bottom" constant="8" id="Jta-TV-rHz"/>
+                    <constraint firstItem="UCP-oz-Bpq" firstAttribute="top" secondItem="5Oe-DL-aQ1" secondAttribute="bottom" constant="10" id="Tnh-j9-Gtv"/>
                     <constraint firstAttribute="trailingMargin" secondItem="UCP-oz-Bpq" secondAttribute="trailing" constant="8" id="UEm-vH-IK9"/>
                     <constraint firstItem="2b5-Lv-sy2" firstAttribute="top" secondItem="vFk-R1-Fgi" secondAttribute="topMargin" constant="8" id="aW7-gB-igl"/>
                     <constraint firstItem="UCP-oz-Bpq" firstAttribute="top" secondItem="5Oe-DL-aQ1" secondAttribute="bottom" constant="59" id="auN-Lv-W0N"/>
@@ -65,6 +76,7 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="1fc-gd-tC8"/>
                         <exclude reference="auN-Lv-W0N"/>
                     </mask>
                 </variation>

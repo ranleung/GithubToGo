@@ -11,8 +11,14 @@
 		703C824B19F5B5CA0058B4BA /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C824A19F5B5CA0058B4BA /* RepoCell.swift */; };
 		703C824D19F5B62B0058B4BA /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C824C19F5B62B0058B4BA /* Repo.swift */; };
 		7040C81019F83DEA0039972C /* RepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7040C80F19F83DEA0039972C /* RepoCell.xib */; };
+		7040C81219F842120039972C /* UserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7040C81119F842120039972C /* UserSearchViewController.swift */; };
+		7040C81419F845570039972C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7040C81319F845570039972C /* User.swift */; };
+		7040C81619F854C30039972C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7040C81519F854C30039972C /* UserCell.swift */; };
 		7047FE7819F5A303000C9804 /* SplitContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047FE7719F5A303000C9804 /* SplitContainerViewController.swift */; };
 		7047FE7A19F5AA7D000C9804 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047FE7919F5AA7D000C9804 /* NetworkController.swift */; };
+		7073F20919F87A9B00F1A3A3 /* ShowImageAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7073F20819F87A9B00F1A3A3 /* ShowImageAnimator.swift */; };
+		7073F20B19F87ABF00F1A3A3 /* HideImageAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7073F20A19F87ABF00F1A3A3 /* HideImageAnimator.swift */; };
+		70840CA019F868BA009D3D7B /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70840C9F19F868BA009D3D7B /* UserDetailViewController.swift */; };
 		70FC67ED19F56BB600686AC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC67EC19F56BB600686AC5 /* AppDelegate.swift */; };
 		70FC67F019F56BB600686AC5 /* GithubToGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 70FC67EE19F56BB600686AC5 /* GithubToGo.xcdatamodeld */; };
 		70FC67F219F56BB600686AC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC67F119F56BB600686AC5 /* ViewController.swift */; };
@@ -37,8 +43,14 @@
 		703C824A19F5B5CA0058B4BA /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		703C824C19F5B62B0058B4BA /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		7040C80F19F83DEA0039972C /* RepoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepoCell.xib; sourceTree = "<group>"; };
+		7040C81119F842120039972C /* UserSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchViewController.swift; sourceTree = "<group>"; };
+		7040C81319F845570039972C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7040C81519F854C30039972C /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		7047FE7719F5A303000C9804 /* SplitContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitContainerViewController.swift; sourceTree = "<group>"; };
 		7047FE7919F5AA7D000C9804 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		7073F20819F87A9B00F1A3A3 /* ShowImageAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageAnimator.swift; sourceTree = "<group>"; };
+		7073F20A19F87ABF00F1A3A3 /* HideImageAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideImageAnimator.swift; sourceTree = "<group>"; };
+		70840C9F19F868BA009D3D7B /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		70FC67E719F56BB600686AC5 /* GithubToGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubToGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70FC67EB19F56BB600686AC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70FC67EC19F56BB600686AC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +89,8 @@
 				7047FE7719F5A303000C9804 /* SplitContainerViewController.swift */,
 				7047FE7919F5AA7D000C9804 /* NetworkController.swift */,
 				703C824819F5AF330058B4BA /* RepositoryViewController.swift */,
+				7040C81119F842120039972C /* UserSearchViewController.swift */,
+				70840C9F19F868BA009D3D7B /* UserDetailViewController.swift */,
 			);
 			name = "Controller Layer";
 			sourceTree = "<group>";
@@ -85,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				703C824C19F5B62B0058B4BA /* Repo.swift */,
+				7040C81319F845570039972C /* User.swift */,
 			);
 			name = "Model Layer";
 			sourceTree = "<group>";
@@ -93,11 +108,21 @@
 			isa = PBXGroup;
 			children = (
 				703C824A19F5B5CA0058B4BA /* RepoCell.swift */,
+				7040C80F19F83DEA0039972C /* RepoCell.xib */,
+				7040C81519F854C30039972C /* UserCell.swift */,
 				70FC67F819F56BB600686AC5 /* LaunchScreen.xib */,
 				70FC67F319F56BB600686AC5 /* Main.storyboard */,
-				7040C80F19F83DEA0039972C /* RepoCell.xib */,
 			);
 			name = "View Layer";
+			sourceTree = "<group>";
+		};
+		7073F20719F87A6B00F1A3A3 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				7073F20819F87A9B00F1A3A3 /* ShowImageAnimator.swift */,
+				7073F20A19F87ABF00F1A3A3 /* HideImageAnimator.swift */,
+			);
+			name = Animations;
 			sourceTree = "<group>";
 		};
 		70FC67DE19F56BB600686AC5 = {
@@ -121,6 +146,7 @@
 		70FC67E919F56BB600686AC5 /* GithubToGo */ = {
 			isa = PBXGroup;
 			children = (
+				7073F20719F87A6B00F1A3A3 /* Animations */,
 				7047FE7419F5A28E000C9804 /* Controller Layer */,
 				7047FE7619F5A2B7000C9804 /* View Layer */,
 				7047FE7519F5A2A9000C9804 /* Model Layer */,
@@ -260,11 +286,17 @@
 			files = (
 				7047FE7A19F5AA7D000C9804 /* NetworkController.swift in Sources */,
 				703C824B19F5B5CA0058B4BA /* RepoCell.swift in Sources */,
+				70840CA019F868BA009D3D7B /* UserDetailViewController.swift in Sources */,
 				70FC67F219F56BB600686AC5 /* ViewController.swift in Sources */,
 				703C824D19F5B62B0058B4BA /* Repo.swift in Sources */,
 				70FC67ED19F56BB600686AC5 /* AppDelegate.swift in Sources */,
+				7073F20B19F87ABF00F1A3A3 /* HideImageAnimator.swift in Sources */,
 				70FC67F019F56BB600686AC5 /* GithubToGo.xcdatamodeld in Sources */,
 				703C824919F5AF330058B4BA /* RepositoryViewController.swift in Sources */,
+				7073F20919F87A9B00F1A3A3 /* ShowImageAnimator.swift in Sources */,
+				7040C81219F842120039972C /* UserSearchViewController.swift in Sources */,
+				7040C81419F845570039972C /* User.swift in Sources */,
+				7040C81619F854C30039972C /* UserCell.swift in Sources */,
 				7047FE7819F5A303000C9804 /* SplitContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
