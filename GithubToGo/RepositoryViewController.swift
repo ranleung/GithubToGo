@@ -26,18 +26,7 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
         tableView.estimatedRowHeight = 148.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        let initalSearch = "Hello World"
-        self.title = initalSearch
-        
-        
-        NetworkController.controller.fetchRepoWithSearchTerm(initalSearch, completionHandler: { (errorDescription, response) -> (Void) in
-            if errorDescription != nil {
-                println(errorDescription)
-            } else {
-                self.repos = response
-                self.tableView.reloadData()
-            }
-        })
+        self.title = "Repositories"
         
         self.searchBar.placeholder = "Search Repositories"
 
@@ -85,16 +74,31 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
     
     func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String)-> Bool {
         println(text)
-        if text.validate() == true {
-            println("True")
-            searchBar.barTintColor = nil
-            return text.validate()
-        } else {
-            println("false")
-            searchBar.barTintColor = UIColor.redColor()
-            return text.validate()
-        }
         
+        var warningRect = CGRect(x: 37, y: 114, width: 300, height: 40)
+        var warningLabel = UILabel()
+        warningLabel.frame = warningRect
+        warningLabel.backgroundColor = UIColor.redColor()
+        warningLabel.textColor = UIColor.whiteColor()
+        warningLabel.textAlignment = NSTextAlignment.Center
+        warningLabel.layer.cornerRadius = 8
+        warningLabel.clipsToBounds = true
+        warningLabel.alpha = 0
+        warningLabel.text = "Search does not support character '\(text)'"
+        
+        if text.validate() == false {
+            view.addSubview(warningLabel)
+            UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: { () -> Void in
+                warningLabel.alpha = 1.0
+                }, completion: { (finished) -> Void in
+                    UIView.animateWithDuration(1.0, delay: 0.1, options: nil, animations: { () -> Void in
+                        warningLabel.alpha = 0.0
+                        }, completion: { (finished) -> Void in
+                            
+                    })
+            })
+        }
+        return text.validate()
     }
 
     
@@ -105,7 +109,6 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
             if errorDescription != nil {
                 println(errorDescription)
             } else {
-                searchBar.barTintColor = nil
                 self.repos = response
                 self.tableView.reloadData()
             }

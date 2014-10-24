@@ -28,6 +28,7 @@ class UserSearchViewController: UIViewController, UICollectionViewDelegate, UICo
         self.navigationController?.delegate = self
         
         self.searchBar.placeholder = "Search Users"
+        self.title = "Users"
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
@@ -40,9 +41,34 @@ class UserSearchViewController: UIViewController, UICollectionViewDelegate, UICo
 
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         println(searchText)
+        
     }
     
     func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        
+        var warningRect = CGRect(x: 37, y: 114, width: 300, height: 40)
+        var warningLabel = UILabel()
+        warningLabel.frame = warningRect
+        warningLabel.backgroundColor = UIColor.redColor()
+        warningLabel.textColor = UIColor.whiteColor()
+        warningLabel.textAlignment = NSTextAlignment.Center
+        warningLabel.layer.cornerRadius = 8
+        warningLabel.clipsToBounds = true
+        warningLabel.alpha = 0
+        warningLabel.text = "Search does not support character '\(text)'"
+        
+        if text.validate() == false {
+            view.addSubview(warningLabel)
+            UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: { () -> Void in
+                warningLabel.alpha = 1.0
+                }, completion: { (finished) -> Void in
+                    UIView.animateWithDuration(1.0, delay: 0.1, options: nil, animations: { () -> Void in
+                        warningLabel.alpha = 0.0
+                        }, completion: { (finished) -> Void in
+                            
+                    })
+            })
+        }
         return text.validate()
     }
     
@@ -58,8 +84,6 @@ class UserSearchViewController: UIViewController, UICollectionViewDelegate, UICo
             }
         })
         searchBar.resignFirstResponder()
-        
-        self.title = searchText
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
