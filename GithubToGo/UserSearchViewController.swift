@@ -12,6 +12,8 @@ class UserSearchViewController: UIViewController, UICollectionViewDelegate, UICo
     
     @IBOutlet var collectionView: UICollectionView!
 
+    @IBOutlet var searchBar: UISearchBar!
+    
     var users: [User]?
     var passImage: UIImage?
     
@@ -20,6 +22,8 @@ class UserSearchViewController: UIViewController, UICollectionViewDelegate, UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.searchBar.placeholder = "Search Users"
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
@@ -66,10 +70,17 @@ class UserSearchViewController: UIViewController, UICollectionViewDelegate, UICo
         
         cell.loginLabel.text = user?.login
         
-        NetworkController.controller.downloadUserImageForUser(user!,completionHandler: { (image) -> (Void) in
-            user?.downloadedImage = image
-            cell.avatarImage.image = image
-        })
+        //To make sure the cell image doesn't load twice
+        cell.avatarImage.image = nil
+        var currentTag = cell.tag + 1
+        cell.tag = currentTag
+        
+        if cell.tag == currentTag {
+            NetworkController.controller.downloadUserImageForUser(user!,completionHandler: { (image) -> (Void) in
+                user?.downloadedImage = image
+                cell.avatarImage.image = image
+            })
+        }
         return cell
     }
     

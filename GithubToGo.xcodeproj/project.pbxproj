@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7007F8C519F9ADF0009145DC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007F8C419F9ADF0009145DC /* WebViewController.swift */; };
 		703C824919F5AF330058B4BA /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C824819F5AF330058B4BA /* RepositoryViewController.swift */; };
 		703C824B19F5B5CA0058B4BA /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C824A19F5B5CA0058B4BA /* RepoCell.swift */; };
 		703C824D19F5B62B0058B4BA /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C824C19F5B62B0058B4BA /* Repo.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7007F8C419F9ADF0009145DC /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		703C824819F5AF330058B4BA /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		703C824A19F5B5CA0058B4BA /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		703C824C19F5B62B0058B4BA /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				703C824819F5AF330058B4BA /* RepositoryViewController.swift */,
 				7040C81119F842120039972C /* UserSearchViewController.swift */,
 				70840C9F19F868BA009D3D7B /* UserDetailViewController.swift */,
+				7007F8C419F9ADF0009145DC /* WebViewController.swift */,
 			);
 			name = "Controller Layer";
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				70FC67F019F56BB600686AC5 /* GithubToGo.xcdatamodeld in Sources */,
 				703C824919F5AF330058B4BA /* RepositoryViewController.swift in Sources */,
 				7073F20919F87A9B00F1A3A3 /* ShowImageAnimator.swift in Sources */,
+				7007F8C519F9ADF0009145DC /* WebViewController.swift in Sources */,
 				7040C81219F842120039972C /* UserSearchViewController.swift in Sources */,
 				7040C81419F845570039972C /* User.swift in Sources */,
 				7040C81619F854C30039972C /* UserCell.swift in Sources */,

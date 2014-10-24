@@ -28,7 +28,7 @@ class RootViewController: UITableViewController, UINavigationControllerDelegate 
         
         // Only return a custom animator for two view controller types
         if let mainViewController = fromVC as? UserSearchViewController {
-            if let detailView = toVC as? UserDetailViewController {
+            if let userDetailView = toVC as? UserDetailViewController {
                 let animator = ShowImageAnimator()
                 animator.origin = mainViewController.origin
                 
@@ -36,10 +36,12 @@ class RootViewController: UITableViewController, UINavigationControllerDelegate 
             }
         }
         else if let mainViewController = fromVC as? UserDetailViewController {
-            let animator = HideImageAnimator()
-            animator.origin = mainViewController.reverseOrigin
-            
-            return animator
+            if let userSearchView = toVC as? UserSearchViewController {
+                let animator = HideImageAnimator()
+                animator.origin = mainViewController.reverseOrigin
+                
+                return animator
+            }
         }
         
         // All other types use default transition

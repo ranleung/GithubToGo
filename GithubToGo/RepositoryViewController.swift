@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import WebKit
 
 class RepositoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var searchBar: UISearchBar!
     var repos: [Repo]?
     var refreshControl: UIRefreshControl!
     
@@ -27,6 +29,7 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
         let initalSearch = "Hello World"
         self.title = initalSearch
         
+        
         NetworkController.controller.fetchRepoWithSearchTerm(initalSearch, completionHandler: { (errorDescription, response) -> (Void) in
             if errorDescription != nil {
                 println(errorDescription)
@@ -36,7 +39,8 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
             }
         })
         
-        
+        self.searchBar.placeholder = "Search Repositories"
+
         //In storyboard, already set the searchBar delegate to View Controller
         //self.searchBar.delegate = self
         self.tableView.dataSource = self
@@ -65,6 +69,15 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
         return cell
         
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let newVC = self.storyboard?.instantiateViewControllerWithIdentifier("WebViewController") as WebViewController
+        let indexPath = self.tableView.indexPathForSelectedRow()!
+        let selectedRepo = self.repos?[indexPath.row]
+        newVC.repo = selectedRepo
+        self.navigationController?.pushViewController(newVC, animated: true)
+    }
+
    
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         println(searchText)
@@ -83,17 +96,16 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
         }
         
     }
-    
 
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         let searchText = searchBar.text
         println("User is searching for: \(searchText)")
-        
         NetworkController.controller.fetchRepoWithSearchTerm(searchText, completionHandler: { (errorDescription, response) -> (Void) in
             if errorDescription != nil {
                 println(errorDescription)
             } else {
+                searchBar.barTintColor = nil
                 self.repos = response
                 self.tableView.reloadData()
             }

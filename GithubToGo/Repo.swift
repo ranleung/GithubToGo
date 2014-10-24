@@ -15,6 +15,7 @@ class Repo {
     var language: String?
     var createdAt: String?
     var login: String?
+    var link: String?
     
     init(repoInfo: NSDictionary) {
         println(repoInfo)
@@ -25,7 +26,8 @@ class Repo {
         var createdAtComponent = unformatedCreatedAt?.componentsSeparatedByString("T")
         self.createdAt = createdAtComponent?.first
         let owner = repoInfo["owner"] as NSDictionary
-        self.login = owner["login"] as? NSString
+        self.login = owner["login"] as? String
+        self.link = repoInfo["html_url"] as? String
     }
     
     class func parseJSONDataIntoRepos(rawJSONData: NSData) -> [Repo]? {
