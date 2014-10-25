@@ -8,9 +8,11 @@
 
 import UIKit
 
-class MyViewController: UIViewController {
+class MyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet var tableView: UITableView!
     var user: User!
+    var repos: [Repo]?
     
     @IBOutlet var urlLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
@@ -24,6 +26,12 @@ class MyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Using nib
+        self.tableView.registerNib(UINib(nibName: "RepoCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "REPO_CELL")
+        
+        tableView.estimatedRowHeight = 68.0
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         NetworkController.controller.fetchAuthenticatedUser { (errorDescription, response) -> (Void) in
             if errorDescription != nil {
@@ -45,14 +53,50 @@ class MyViewController: UIViewController {
         }
         
         NetworkController.controller.fetchAuthenticatedUserRepo { (errorDescription, response) -> (Void) in
-            println(errorDescription)
-            println(response)
+            if errorDescription != nil {
+                println(errorDescription)
+            } else {
+                self.repos = response
+                self.tableView.reloadData()
+            }
         }
-        
        
         
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.repos != nil {
+            return self.repos!.count
+        } else {
+            return 0
+        }
         
     }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("REPO_CELL", forIndexPath: indexPath) as RepoCell
+        
+        let repo = self.repos![indexPath.row]
+        cell.repoDescLabel.text = repo.repoDesc!
+        cell.repoNameLabel.text = repo.repoName
+        cell.createdAtLabel.text = repo.createdAt
+        cell.languageLabel.text = repo.language
+        cell.userLabel.text = repo.login
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let newVC = self.storyboard?.instantiateViewControllerWithIdentifier("WebViewController") as WebViewController
+        let indexPath = self.tableView.indexPathForSelectedRow()!
+        let selectedRepo = self.repos?[indexPath.row]
+        newVC.repo = selectedRepo
+        self.navigationController?.pushViewController(newVC, animated: true)
+    }
+    
     
     
     

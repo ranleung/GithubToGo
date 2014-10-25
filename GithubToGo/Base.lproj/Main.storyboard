@@ -554,7 +554,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="227" id="YCq-bt-Lb7" customClass="USERREPO_CELL">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="REPO_CELL" rowHeight="227" id="YCq-bt-Lb7">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YCq-bt-Lb7" id="1RX-FO-6l2">
@@ -584,6 +584,7 @@
                         <outlet property="imageView" destination="E8v-Jo-XRN" id="b3p-pb-XX4"/>
                         <outlet property="loginLabel" destination="vcW-Bl-wEi" id="0sV-VE-xFW"/>
                         <outlet property="nameLabel" destination="oVy-N6-eHX" id="G8V-zv-Yfv"/>
+                        <outlet property="tableView" destination="fUA-1W-a6T" id="SwT-f1-bl9"/>
                         <outlet property="urlLabel" destination="qKj-FT-C8u" id="3zE-a7-iYF"/>
                     </connections>
                 </viewController>
@@ -594,7 +595,6 @@
         <!--New Repo View Controller-->
         <scene sceneID="pUT-z9-vdo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xzd-kT-cR8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="K2f-uK-kgu" customClass="NewRepoViewController" customModule="GithubToGo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tx3-jL-Uzz"/>
@@ -654,6 +654,7 @@
                         </constraints>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xzd-kT-cR8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1865" y="-873"/>
         </scene>

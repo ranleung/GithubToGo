@@ -52,19 +52,16 @@ class Repo {
         var error: NSError?
         
         if let searchJSONArray = NSJSONSerialization.JSONObjectWithData(rawJSONData, options: nil, error: nil) as? NSArray {
-            println(searchJSONArray)
+            //println(searchJSONArray)
             var repos = [Repo]()
             
             for dictionary in searchJSONArray {
                 if let repoDict = dictionary as? NSDictionary {
-                    println("Creating Repo")
                     repos.append(Repo(repoInfo: repoDict))
                 }
             }
-            
             return repos
         }
-        println(error)
         return nil
     }
     
