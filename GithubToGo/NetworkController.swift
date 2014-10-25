@@ -22,6 +22,18 @@ class NetworkController {
     let redirectURL = "redirect_uri=somefancyname://test"
     let githubPOSTURL = "https://github.com/login/oauth/access_token"
     
+    init() {
+        if self.mySession == nil {
+            if let tokenValue = NSUserDefaults.standardUserDefaults().valueForKey("MyKey") as? String {
+                self.accessToken = tokenValue
+                var sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
+                var HTTPAdditionalHeaders =  ["Authorization" : "token \(self.accessToken!)"]
+                sessionConfiguration.HTTPAdditionalHeaders = HTTPAdditionalHeaders
+                self.mySession = NSURLSession(configuration: sessionConfiguration)
+            }
+        }
+    }
+    
     //Creating a singleton class
     class var controller : NetworkController {
     struct Static {
@@ -34,11 +46,13 @@ class NetworkController {
         return Static.instance!
     }
     
+    
     //Take the user of our app and send the to github
     func requestOAuthAccess() {
         let url = githubOAuthUrl + clientID + "&" + redirectURL + "&" + scope
         UIApplication.sharedApplication().openURL(NSURL(string: url)!)
     }
+    
     
     func handleOAuthURL(callbackURL: NSURL) {
         //Set up the request, parsing throught the url that given to us by Github
@@ -92,6 +106,7 @@ class NetworkController {
             }
         }).resume()
     }
+    
     
     func fetchRepoWithSearchTerm(repoName: String?, completionHandler: (errorDescription: String?, response: [Repo]?)-> (Void)) {
         
@@ -175,6 +190,128 @@ class NetworkController {
             
         }).resume()
     }
+    
+    func fetchUser(user: User, completionHandler: (errorDescription: String?, response: User?)-> (Void)) {
+        
+        let url = NSURL(string: "https://api.github.com/search/users/\(user)")
+        let dataTask: Void = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
+            if let httpResponse = response as? NSHTTPURLResponse {
+                switch httpResponse.statusCode {
+                case 200...204:
+                    for header in httpResponse.allHeaderFields {
+                        println(header)
+                    }
+                    let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    
+                    //Fix this
+                    let userInfo = User.parseJSONDataIntoUser(data, user: user)
+                    
+                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                        completionHandler(errorDescription: nil, response: userInfo)
+                    })
+                    
+                case 400...499:
+                    println("This is the clients fault")
+                    println(httpResponse.description)
+                    completionHandler(errorDescription: "This is the client's fault", response: nil)
+                case 500...599:
+                    println("This is the servers fault")
+                    println(httpResponse.description)
+                    completionHandler(errorDescription: "This is the servers's fault", response: nil)
+                default:
+                    println("Bad Response? \(httpResponse.statusCode)")
+                }
+            }
+            
+        }).resume()
+        
+        
+    }
+    
+    func fetchAuthenticatedUser(completionHandler: (errorDescription: String?, response: User?)-> (Void)) {
+        let url = NSURL(string: "https://api.github.com/user")
+        
+        if self.mySession != nil {
+            let dataTask: Void = self.mySession!.dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
+                if let httpResponse = response as? NSHTTPURLResponse {
+                    switch httpResponse.statusCode {
+                    case 200...204:
+                        for header in httpResponse.allHeaderFields {
+                            println(header)
+                        }
+                        let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
+                        
+                        //Fix this
+                        let userInfo = User.parseJSONDataIntoAuthenticatedUser(data)
+                        
+                        NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                            completionHandler(errorDescription: nil, response: userInfo)
+                        })
+                        
+                    case 400...499:
+                        println("This is the clients fault")
+                        println(httpResponse.description)
+                        completionHandler(errorDescription: "This is the client's fault", response: nil)
+                    case 500...599:
+                        println("This is the servers fault")
+                        println(httpResponse.description)
+                        completionHandler(errorDescription: "This is the servers's fault", response: nil)
+                    default:
+                        println("Bad Response? \(httpResponse.statusCode)")
+                    }
+                }
+                
+            }).resume()
+        }
+    }
+    
+    func fetchAuthenticatedUserRepo(completionHandler: (errorDescription: String?, response: [Repo]?)-> (Void)) {
+        let url = NSURL(string: "https://api.github.com/user/repos")
+        
+        if self.mySession != nil {
+            let dataTask: Void = self.mySession!.dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
+                if let httpResponse = response as? NSHTTPURLResponse {
+                    switch httpResponse.statusCode {
+                    case 200...204:
+                        for header in httpResponse.allHeaderFields {
+                            println(header)
+                        }
+                        let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
+                        
+                        
+                        let repoInfo = Repo.parseJSONDataIntoAuthenticatedRepo(data)
+                        
+                        NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                            completionHandler(errorDescription: nil, response: repoInfo)
+                        })
+                        
+                    case 400...499:
+                        println("This is the clients fault")
+                        println(httpResponse.description)
+                        completionHandler(errorDescription: "This is the client's fault", response: nil)
+                    case 500...599:
+                        println("This is the servers fault")
+                        println(httpResponse.description)
+                        completionHandler(errorDescription: "This is the servers's fault", response: nil)
+                    default:
+                        println("Bad Response? \(httpResponse.statusCode)")
+                    }
+                }
+                
+            }).resume()
+        }
+    }
+    
+    func postRepo(name: String, completionHandler: (errorDescription: String?) -> (Void)) {
+        let url = NSURL(string: "https://api.github.com/user/repos")
+        
+        
+        
+        
+    }
+
+    
+    
     
     
     func downloadUserImageForUser(user: User, completionHandler: (image: UIImage)->(Void)) {

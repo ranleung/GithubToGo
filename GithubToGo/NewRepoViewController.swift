@@ -1,25 +1,22 @@
 //
-//  RootViewController.swift
+//  NewRepoViewController.swift
 //  GithubToGo
 //
-//  Created by Randall Leung on 10/22/14.
+//  Created by Randall Leung on 10/24/14.
 //  Copyright (c) 2014 Randall. All rights reserved.
 //
 
 import UIKit
 
-class RootViewController: UITableViewController {
+class NewRepoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
     }
     
 
     
-
-
-
 
 
 }

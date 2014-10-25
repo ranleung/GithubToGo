@@ -21,13 +21,6 @@ class WebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-//        var actInd = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50))
-//        actInd.center = self.view.center
-//        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-//        self.webView.addSubview(actInd)
-//        actInd.startAnimating()
-        
         self.webView.loadRequest(NSURLRequest(URL: NSURL(string: "\(repo!.link!)")!))
         
     }

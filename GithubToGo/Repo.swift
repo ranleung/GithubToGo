@@ -48,6 +48,27 @@ class Repo {
         return nil
     }
     
+    class func parseJSONDataIntoAuthenticatedRepo (rawJSONData: NSData) -> [Repo]? {
+        var error: NSError?
+        
+        if let searchJSONArray = NSJSONSerialization.JSONObjectWithData(rawJSONData, options: nil, error: nil) as? NSArray {
+            println(searchJSONArray)
+            var repos = [Repo]()
+            
+            for dictionary in searchJSONArray {
+                if let repoDict = dictionary as? NSDictionary {
+                    println("Creating Repo")
+                    repos.append(Repo(repoInfo: repoDict))
+                }
+            }
+            
+            return repos
+        }
+        println(error)
+        return nil
+    }
+    
+    
     
     
 }

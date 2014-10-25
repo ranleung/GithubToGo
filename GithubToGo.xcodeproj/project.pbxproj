@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7007F8C519F9ADF0009145DC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007F8C419F9ADF0009145DC /* WebViewController.swift */; };
+		7007F8C719FAEC80009145DC /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007F8C619FAEC80009145DC /* MyViewController.swift */; };
 		703C824919F5AF330058B4BA /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C824819F5AF330058B4BA /* RepositoryViewController.swift */; };
 		703C824B19F5B5CA0058B4BA /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C824A19F5B5CA0058B4BA /* RepoCell.swift */; };
 		703C824D19F5B62B0058B4BA /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C824C19F5B62B0058B4BA /* Repo.swift */; };
@@ -18,6 +19,7 @@
 		7047FE7819F5A303000C9804 /* SplitContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047FE7719F5A303000C9804 /* SplitContainerViewController.swift */; };
 		7047FE7A19F5AA7D000C9804 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047FE7919F5AA7D000C9804 /* NetworkController.swift */; };
 		704B87A419F962E00093C604 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = 704B87A319F962E00093C604 /* question.png */; };
+		70678CC519FB1DEB00EF571F /* NewRepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70678CC419FB1DEB00EF571F /* NewRepoViewController.swift */; };
 		7073F20919F87A9B00F1A3A3 /* ShowImageAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7073F20819F87A9B00F1A3A3 /* ShowImageAnimator.swift */; };
 		7073F20B19F87ABF00F1A3A3 /* HideImageAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7073F20A19F87ABF00F1A3A3 /* HideImageAnimator.swift */; };
 		7073F20D19F8835F00F1A3A3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7073F20C19F8835F00F1A3A3 /* RootViewController.swift */; };
@@ -44,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		7007F8C419F9ADF0009145DC /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		7007F8C619FAEC80009145DC /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		703C824819F5AF330058B4BA /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		703C824A19F5B5CA0058B4BA /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		703C824C19F5B62B0058B4BA /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 		7047FE7719F5A303000C9804 /* SplitContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitContainerViewController.swift; sourceTree = "<group>"; };
 		7047FE7919F5AA7D000C9804 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		704B87A319F962E00093C604 /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
+		70678CC419FB1DEB00EF571F /* NewRepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRepoViewController.swift; sourceTree = "<group>"; };
 		7073F20819F87A9B00F1A3A3 /* ShowImageAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageAnimator.swift; sourceTree = "<group>"; };
 		7073F20A19F87ABF00F1A3A3 /* HideImageAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideImageAnimator.swift; sourceTree = "<group>"; };
 		7073F20C19F8835F00F1A3A3 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				7040C81119F842120039972C /* UserSearchViewController.swift */,
 				70840C9F19F868BA009D3D7B /* UserDetailViewController.swift */,
 				7007F8C419F9ADF0009145DC /* WebViewController.swift */,
+				7007F8C619FAEC80009145DC /* MyViewController.swift */,
+				70678CC419FB1DEB00EF571F /* NewRepoViewController.swift */,
 			);
 			name = "Controller Layer";
 			sourceTree = "<group>";
@@ -301,6 +307,7 @@
 				703C824B19F5B5CA0058B4BA /* RepoCell.swift in Sources */,
 				70840CA019F868BA009D3D7B /* UserDetailViewController.swift in Sources */,
 				70FC67F219F56BB600686AC5 /* ViewController.swift in Sources */,
+				7007F8C719FAEC80009145DC /* MyViewController.swift in Sources */,
 				707F499A19F9A10E00A0F3CD /* StringExtension.swift in Sources */,
 				703C824D19F5B62B0058B4BA /* Repo.swift in Sources */,
 				7073F20D19F8835F00F1A3A3 /* RootViewController.swift in Sources */,
@@ -308,6 +315,7 @@
 				7073F20B19F87ABF00F1A3A3 /* HideImageAnimator.swift in Sources */,
 				70FC67F019F56BB600686AC5 /* GithubToGo.xcdatamodeld in Sources */,
 				703C824919F5AF330058B4BA /* RepositoryViewController.swift in Sources */,
+				70678CC519FB1DEB00EF571F /* NewRepoViewController.swift in Sources */,
 				7073F20919F87A9B00F1A3A3 /* ShowImageAnimator.swift in Sources */,
 				7007F8C519F9ADF0009145DC /* WebViewController.swift in Sources */,
 				7040C81219F842120039972C /* UserSearchViewController.swift in Sources */,
