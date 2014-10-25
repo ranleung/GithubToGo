@@ -25,6 +25,7 @@
 		7073F20D19F8835F00F1A3A3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7073F20C19F8835F00F1A3A3 /* RootViewController.swift */; };
 		707F499A19F9A10E00A0F3CD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707F499919F9A10E00A0F3CD /* StringExtension.swift */; };
 		70840CA019F868BA009D3D7B /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70840C9F19F868BA009D3D7B /* UserDetailViewController.swift */; };
+		70EC5D4119FC47FC0020C1E2 /* UpdateBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EC5D4019FC47FC0020C1E2 /* UpdateBioViewController.swift */; };
 		70FC67ED19F56BB600686AC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC67EC19F56BB600686AC5 /* AppDelegate.swift */; };
 		70FC67F019F56BB600686AC5 /* GithubToGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 70FC67EE19F56BB600686AC5 /* GithubToGo.xcdatamodeld */; };
 		70FC67F219F56BB600686AC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC67F119F56BB600686AC5 /* ViewController.swift */; };
@@ -63,6 +64,7 @@
 		7073F20C19F8835F00F1A3A3 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		707F499919F9A10E00A0F3CD /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		70840C9F19F868BA009D3D7B /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		70EC5D4019FC47FC0020C1E2 /* UpdateBioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateBioViewController.swift; sourceTree = "<group>"; };
 		70FC67E719F56BB600686AC5 /* GithubToGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubToGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70FC67EB19F56BB600686AC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70FC67EC19F56BB600686AC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				70840C9F19F868BA009D3D7B /* UserDetailViewController.swift */,
 				7007F8C419F9ADF0009145DC /* WebViewController.swift */,
 				7007F8C619FAEC80009145DC /* MyViewController.swift */,
+				70EC5D4019FC47FC0020C1E2 /* UpdateBioViewController.swift */,
 				70678CC419FB1DEB00EF571F /* NewRepoViewController.swift */,
 			);
 			name = "Controller Layer";
@@ -307,6 +310,7 @@
 				703C824B19F5B5CA0058B4BA /* RepoCell.swift in Sources */,
 				70840CA019F868BA009D3D7B /* UserDetailViewController.swift in Sources */,
 				70FC67F219F56BB600686AC5 /* ViewController.swift in Sources */,
+				70EC5D4119FC47FC0020C1E2 /* UpdateBioViewController.swift in Sources */,
 				7007F8C719FAEC80009145DC /* MyViewController.swift in Sources */,
 				707F499A19F9A10E00A0F3CD /* StringExtension.swift in Sources */,
 				703C824D19F5B62B0058B4BA /* Repo.swift in Sources */,

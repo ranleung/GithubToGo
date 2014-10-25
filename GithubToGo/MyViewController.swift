@@ -23,6 +23,7 @@ class MyViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet var followerLabel: UILabel!
     @IBOutlet var followingLabel: UILabel!
     @IBOutlet var hireableLabel: UILabel!
+    @IBOutlet var bioLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -46,6 +47,7 @@ class MyViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 self.followerLabel.text = String(self.user.followers!)
                 self.followingLabel.text = String(self.user.following!)
                 self.hireableLabel.text = "\(self.user.hireable!)"
+                self.bioLabel.text = self.user.bio
                 
                 NetworkController.controller.downloadUserImageForUser(self.user, completionHandler: { (image) -> (Void) in
                     self.imageView.image = image
@@ -100,8 +102,7 @@ class MyViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         self.navigationController?.pushViewController(newVC, animated: true)
     }
     
-    
-    
+
     
     
     

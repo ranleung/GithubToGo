@@ -336,6 +336,46 @@ class NetworkController {
         dataTask.resume()
     }
     
+    func updateBio(userDictionary: NSDictionary, completionHandler: (errorDescription: String?) -> (Void)) {
+        var error: NSError?
+        let url = NSURL(string: "https://api.github.com/user")
+        let session = NSURLSession.sharedSession()
+        let request = NSMutableURLRequest(URL: url!)
+        let accessToken = NSUserDefaults.standardUserDefaults().valueForKey("MyKey") as String
+        
+        request.setValue("token \(accessToken)", forHTTPHeaderField: "Authorization")
+        request.HTTPMethod = "PATCH"
+        let JSONRequest = NSJSONSerialization.dataWithJSONObject(userDictionary, options: nil, error: &error)
+        request.HTTPBody = JSONRequest
+        
+        let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+            var errorDescription : String?
+            if error != nil {
+                errorDescription = "Server request not sent. Something is wrong."
+            } else {
+                let httpResponse = response as NSHTTPURLResponse
+                switch httpResponse.statusCode {
+                case 200...299:
+                    println("200 Status")
+                case 400...499:
+                    errorDescription = "This is the client's fault"
+                case 500...599:
+                    errorDescription = "This is the server's fault"
+                default:
+                    errorDescription = "Bad Response? \(httpResponse.statusCode)"
+                }
+            }
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                completionHandler(errorDescription: errorDescription)
+            })
+            
+        })
+        dataTask.resume()
+
+    }
+    
+    
+    
     func downloadUserImageForUser(user: User, completionHandler: (image: UIImage)->(Void)) {
         self.imageQueue.addOperationWithBlock { () -> Void in
             
