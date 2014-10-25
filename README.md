@@ -15,3 +15,4 @@
 * Update personal info
 
 ### Must allow app to securely access your Github account.
+#### Built with Xcode 6.1
