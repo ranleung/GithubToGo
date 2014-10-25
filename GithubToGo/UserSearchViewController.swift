@@ -14,6 +14,8 @@ class UserSearchViewController: UIViewController, UICollectionViewDelegate, UICo
 
     @IBOutlet var searchBar: UISearchBar!
     
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     var users: [User]?
     var passImage: UIImage?
     
@@ -74,11 +76,15 @@ class UserSearchViewController: UIViewController, UICollectionViewDelegate, UICo
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         let searchText = searchBar.text
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.color = UIColor.redColor()
         println("User is searching for: \(searchText)")
         NetworkController.controller.fetchUserWithSearchTerm(searchText, completionHandler: { (errorDescription, response) -> (Void) in
             if errorDescription != nil {
                 println(errorDescription)
             } else {
+                self.activityIndicator.hidden = true
+                self.activityIndicator.stopAnimating()
                 self.users = response
                 self.collectionView.reloadData()
             }

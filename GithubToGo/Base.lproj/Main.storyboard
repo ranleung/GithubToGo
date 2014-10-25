@@ -190,19 +190,29 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pKJ-ZE-asl">
+                                <rect key="frame" x="275" y="275" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="OeQ-YR-hRu"/>
+                                    <constraint firstAttribute="height" constant="50" id="k1Z-7I-Di8"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="PQg-WD-upU" firstAttribute="top" secondItem="AgH-Kd-hpe" secondAttribute="bottom" id="5Ir-mx-W5y"/>
                             <constraint firstItem="AgH-Kd-hpe" firstAttribute="top" secondItem="Jgr-H7-TUX" secondAttribute="bottom" id="865-cg-nyd"/>
+                            <constraint firstAttribute="centerY" secondItem="pKJ-ZE-asl" secondAttribute="centerY" id="IqS-le-okh"/>
                             <constraint firstAttribute="bottomMargin" secondItem="PQg-WD-upU" secondAttribute="bottom" constant="-88" id="Rvq-V4-IgW"/>
                             <constraint firstItem="AgH-Kd-hpe" firstAttribute="trailing" secondItem="PQg-WD-upU" secondAttribute="trailing" id="V6Q-FX-wa6"/>
                             <constraint firstItem="AgH-Kd-hpe" firstAttribute="leading" secondItem="PQg-WD-upU" secondAttribute="leading" id="Xmv-o0-1P1"/>
+                            <constraint firstAttribute="centerX" secondItem="pKJ-ZE-asl" secondAttribute="centerX" id="aye-cC-h56"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PQg-WD-upU" secondAttribute="trailing" constant="-16" id="dEp-Q9-B1v"/>
                             <constraint firstItem="PQg-WD-upU" firstAttribute="leading" secondItem="hFr-jh-T1p" secondAttribute="leadingMargin" constant="-16" id="m5J-Y7-d6I"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="pKJ-ZE-asl" id="6vJ-tm-qvX"/>
                         <outlet property="collectionView" destination="PQg-WD-upU" id="f9s-HC-Ijx"/>
                         <outlet property="searchBar" destination="AgH-Kd-hpe" id="ziU-vB-VPS"/>
                     </connections>
@@ -223,6 +233,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="nqz-9O-DbN">
+                                <rect key="frame" x="275" y="275" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="qrD-da-Vdr"/>
+                                    <constraint firstAttribute="height" constant="50" id="vVw-0R-WHT"/>
+                                </constraints>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="G6H-AZ-IwW">
                                 <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -269,7 +286,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="User" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtC-YP-ONI">
-                                                    <rect key="frame" x="553.5" y="120.5" width="30.5" height="17"/>
+                                                    <rect key="frame" x="553" y="120" width="30.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -313,6 +330,8 @@
                             </tableView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="nqz-9O-DbN" secondAttribute="centerX" id="NL5-n1-afN"/>
+                            <constraint firstAttribute="centerY" secondItem="nqz-9O-DbN" secondAttribute="centerY" id="Oy0-Mi-BqQ"/>
                             <constraint firstItem="G6H-AZ-IwW" firstAttribute="top" secondItem="z89-Ri-EXY" secondAttribute="bottom" constant="100" id="RGH-aT-CEL"/>
                             <constraint firstAttribute="bottom" secondItem="G6H-AZ-IwW" secondAttribute="bottom" id="Z20-m1-DOC"/>
                             <constraint firstAttribute="trailing" secondItem="G6H-AZ-IwW" secondAttribute="trailing" id="ijl-UM-wDd"/>
@@ -326,6 +345,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="nqz-9O-DbN" id="wig-UW-ajF"/>
                         <outlet property="searchBar" destination="vsZ-cH-xAc" id="86d-Aa-fmH"/>
                         <outlet property="tableView" destination="G6H-AZ-IwW" id="h93-c9-1Ls"/>
                     </connections>

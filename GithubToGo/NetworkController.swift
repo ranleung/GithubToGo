@@ -335,10 +335,6 @@ class NetworkController {
         })
         dataTask.resume()
     }
-
-    
-    
-    
     
     func downloadUserImageForUser(user: User, completionHandler: (image: UIImage)->(Void)) {
         self.imageQueue.addOperationWithBlock { () -> Void in

@@ -15,7 +15,7 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet var searchBar: UISearchBar!
     var repos: [Repo]?
-    var refreshControl: UIRefreshControl!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,12 +103,17 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
 
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.tableView.hidden = true
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.color = UIColor.redColor()
         let searchText = searchBar.text
         println("User is searching for: \(searchText)")
         NetworkController.controller.fetchRepoWithSearchTerm(searchText, completionHandler: { (errorDescription, response) -> (Void) in
             if errorDescription != nil {
                 println(errorDescription)
             } else {
+                self.activityIndicator.stopAnimating()
+                self.tableView.hidden = false
                 self.repos = response
                 self.tableView.reloadData()
             }
