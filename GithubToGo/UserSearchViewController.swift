@@ -110,6 +110,8 @@ class UserSearchViewController: UIViewController, UICollectionViewDelegate, UICo
             NetworkController.controller.downloadUserImageForUser(user!,completionHandler: { (image) -> (Void) in
                 user?.downloadedImage = image
                 cell.avatarImage.image = image
+                cell.avatarImage.layer.cornerRadius = 10
+                cell.avatarImage.layer.masksToBounds = true
             })
         }
         return cell

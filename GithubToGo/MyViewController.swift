@@ -48,6 +48,8 @@ class MyViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 
                 NetworkController.controller.downloadUserImageForUser(self.user, completionHandler: { (image) -> (Void) in
                     self.imageView.image = image
+                    self.imageView.layer.cornerRadius = 10
+                    self.imageView.layer.masksToBounds = true
                 })
             }
         }
